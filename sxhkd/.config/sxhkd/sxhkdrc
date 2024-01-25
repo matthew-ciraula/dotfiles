@@ -1,0 +1,113 @@
+super + p
+  dmenu_run -c -l 12
+
+#---BSPWM Bindings
+# Quit bspwm
+super + shift + q
+  bspc quit
+
+# restart polybar
+super + shift + p
+  killall polybar ; polybar bar &
+
+# Restart bspwm
+super + shift + r
+  bspc wm -r
+
+# Kill Window 
+super + shift + c
+  bspc node --close
+
+# Focus on window in direction
+super + {h,j,k,l}
+	bspc node -f {west,south,north,east}
+
+# Send window to desktop
+super + shift + {0-9}
+  bspc node --to-desktop {0-9}
+
+# Swap nodes the tree from the current nodes parent
+super + shift + {Up, Down}
+  bspc node @parent -C {forward, backward}
+
+# Rotate the tree from the current nodes parent
+super + shift + {Right, Left}
+	bspc node @parent --rotate {90,270}
+
+# Flip the tree from the current nodes parent
+super + control + {h,j,k,l}
+  bspc node @parent -F {vertical,horizontal,horizontal,vertical}
+
+# Swap window with direction
+super + shift + {h,j,k,l}
+	bspc node -s {west,south,north,east}
+
+# Focus on desktop
+super + {0-9}
+  bspc desktop -f {0-9}
+
+super + Tab
+  bspc desktop -f next
+
+super + shift + Tab
+  bspc desktop -f prev
+
+# Expand a window by moving one of its side outward
+ctrl + super + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+  #xdo resize {-w -20, -h +20, -h -20, -w +20}
+
+# Contract a window by moving one of its side inward
+#ctrl + super + shift + {h,j,k,l}
+#	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+  #xdo resize {-w +20, -h -20, -h +20, -w -20}
+
+#---System Control---#
+# Restart hotkey damon
+super + shift + x
+  killall sxhkd ; sxhkd &
+
+#TODO: FIXME
+super + shift + k
+  keys
+
+# Lock the screen
+#super + shift + e
+#  betterlockscreen -l
+
+super + {Left, Right}
+  pamixer {--allow-boost --decrease, --allow-boost --increase} 10
+
+super + m
+  pamixer -t
+
+#super + shift + p
+#  killall polybar ; polybar bar &
+
+# Brightness
+super + {Up, Down}
+  light {-A 5, -U 5}
+
+super + space
+  alacritty 2>/home/matt/err
+
+super + b
+  $BROWSER
+
+super + e
+  emacs
+
+super + shift + space
+  bspc node -t \~fullscreen
+
+super + r
+  books
+
+super + shift + y
+  ytdl
+
+super + shift + t
+  bspc node -t \~floating
+
+ctrl + super + shift + 6
+  base64-decode
