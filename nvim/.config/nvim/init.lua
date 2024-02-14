@@ -27,7 +27,6 @@ require("lazy").setup({
         dependencies = {"nvim-lua/plenary.nvim"},
         config = true
     },
-    --"junegunn/fzf.vim",
     {
         "hrsh7th/nvim-cmp",
         dependencies = {"hrsh7th/cmp-buffer"}
