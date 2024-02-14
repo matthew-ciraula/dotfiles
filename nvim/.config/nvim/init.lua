@@ -172,8 +172,10 @@ require("mason").setup()
 require("mason-lspconfig").setup{
     ensure_installed = { "gopls", "jdtls" },
 }
-require'lspconfig'.gopls.setup{}
-require'lspconfig'.rust_analyzer.setup{}
+require("lspconfig").gopls.setup{}
+require("lspconfig").rust_analyzer.setup{}
+require("lspconfig").jdtls.setup{}
+require("lspconfig").hls.setup{}
 
 -- cmp config
 -- TODO: not getting completions from other files included - probably need to configure clojure lsp
