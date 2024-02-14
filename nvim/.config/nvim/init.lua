@@ -132,6 +132,15 @@ vim.cmd([[
   autocmd FileType netrw nmap <buffer> l <CR>
 ]])
 
+-- telescope conifg
+require("telescope").setup({
+    pickers = {
+        find_files = {
+            hidden = true
+        }
+    }
+})
+
 -- tree sitter config
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
